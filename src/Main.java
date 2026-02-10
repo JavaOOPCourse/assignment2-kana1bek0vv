@@ -27,10 +27,33 @@ public class Main {
 
                 case 1:
                     // TODO: Read input and add Book
+                    System.out.print("Название: ");
+                    String title = scanner.nextLine();
+
+                    System.out.print("Автор: ");
+                    String author = scanner.nextLine();
+
+                    System.out.print("Год: ");
+                    int year = scanner.nextInt();
+
+                    library.addBook(new Book(title, author, year));
                     break;
 
                 case 2:
                     // TODO: Read input and add EBook
+                    System.out.print("Название: ");
+                    String etitle = scanner.nextLine();
+
+                    System.out.print("Автор: ");
+                    String eauthor = scanner.nextLine();
+
+                    System.out.print("Год: ");
+                    int eyear = scanner.nextInt();
+
+                    System.out.print("Размер файла (MB): ");
+                    double size = scanner.nextDouble();
+
+                    library.addBook(new EBook(etitle, eauthor, eyear, size));
                     break;
 
                 case 3:
@@ -39,22 +62,36 @@ public class Main {
 
                 case 4:
                     // TODO: Search book
+                    System.out.print("Enter title: ");
+                    String search = scanner.nextLine();
+
+                    Book found = library.searchByTitle(search);
+
+                    if (found != null) {
+                        System.out.println(found);
+                    } else {
+                        System.out.println("Нет книг.");
+                    }
                     break;
 
                 case 5:
                     // TODO: Borrow book
+                    System.out.print("Enter:");
+                    library.borrowBook(scanner.nextLine());
                     break;
 
                 case 6:
                     // TODO: Return book
+                    System.out.print("Enter:");
+                    library.returnBook(scanner.nextLine());
                     break;
 
                 case 7:
-                    System.out.println("Goodbye!");
+                    System.out.println("До свидание");
                     break;
 
                 default:
-                    System.out.println("Invalid option!");
+                    System.out.println("Оштбка!");
             }
 
         } while (choice != 7);

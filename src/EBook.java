@@ -6,11 +6,12 @@ public class EBook extends Book {
     public EBook(String title, String author, int year, double fileSize) {
         super(title, author, year);
         // implement
+        this.fileSize=fileSize;
     }
 
     // TODO: Override toString()
     @Override
     public String toString() {
-        return "";
+        return "Электронная книга:"+"Название"+getTitle()+"Автор"+getAuthor()+"Год"+getYear()+"Размер"+fileSize;
     }
 }
